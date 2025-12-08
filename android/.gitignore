@@ -1,0 +1,33 @@
+# Flutter/Dart
+.dart_tool/
+.packages
+.pub/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+.flutter-plugins
+.generated/
+
+# Android
+**/build/
+android/.gradle/
+*.iml
+
+# iOS
+ios/Pods/
+ios/Runner.xcworkspace/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+
+# IDEs
+.idea/
+.vscode/
+*.log
+
+# macOS, Windows, Linux build artifacts
+macos/Flutter/ephemeral/
+windows/runner/Debug/
+linux/runner/Debug/
+
+# Local files
+.env

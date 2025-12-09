@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-
-import 'HomeScreen.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:splash_master/core/splash_master.dart';
+import 'SplashScreen.dart';
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -12,10 +14,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: HomeScreen(),
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData.dark(),
+      home: SplashScreen(),
     );
   }
 }

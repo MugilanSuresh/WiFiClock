@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'DashBoardScreen.dart';
 import 'HomeScreen.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -69,7 +70,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 ],
               ),
             ),
-            nextScreen: NavBarController(),
+            nextScreen: DashBoardScreen(),
             splashIconSize: MediaQuery.of(context).size.height,
             duration: 2500,
             pageTransitionType: PageTransitionType.leftToRight,

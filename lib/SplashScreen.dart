@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'HomeScreen.dart';
 import 'package:page_transition/page_transition.dart';
 
+import 'NavBarController.dart';
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
@@ -13,66 +15,11 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   Timer? _timer;
-  // DataBase handler = DataBase();
-  // List<Config> config = [];
-  bool databaseBool = false;
 
   @override
   void initState() {
     super.initState();
-    print("SPLASH SCREEN CALLED::");
-    // convertFutureListToList(handler.retrieveConfig());
-    // fetchLanguage();
-    // Start the timer
   }
-
-  // void fetchLanguage() async {
-  //   Map<String, dynamic>? data = await handler.getLanguage(1);
-  //   print("LANGUAGE TABLE FROM DATABASE :: $data");
-  //   if (data != null) {
-  //     String selectedLanguage = data['selectedLanguageF']; // Extract language
-  //     print("SELECTED LANGUAGE FROM DATABASE :: $selectedLanguage");
-  //   } else {
-  //     print("No language found in the database");
-  //     await handler.insertLanguage("en","en");
-  //   }
-  // }
-
-  // void convertFutureListToList(Future<List<Config>> _config) async {
-  //   Future<List<Config>> _futureOfList = _config;
-  //   config = await _futureOfList;
-  //   print("TEST DATABASE :: $config");
-  //   print("TEST DATABASE :: ${config.length}");
-  //   if(config.length == 1){
-  //     print("DATABASE VALUE :: ${config[0].port}");
-  //     print("DATABASE VALUE :: ${config[0].ip}");
-  //     print("DATABASE VALUE :: ${config[0].mac}");
-  //     print("DATABASE VALUE :: ${config[0].label}");
-  //     Helper.Ipaddress = "";
-  //     Helper.Ipaddress = config[0].ip!.toString().trim();
-  //     Helper.portF = int.parse(config[0].port!.toString().trim());
-  //     Helper.DashboardName = config[0].label!;
-  //     print("DEVICE=====${Helper.Macaddress}");
-  //     Helper.Macaddress = config[0].mac.toString().trim();
-  //     print("DEVICE1=====${Helper.Macaddress}");
-  //     setState(() {
-  //       databaseBool = true;
-  //     });
-  //   }else{
-  //     setState(() {
-  //       databaseBool = false;
-  //     });
-  //   }
-  // }
-
-  // void _navigateToConfigurationList() {
-  //   if (mounted) {
-  //     Navigator.pushReplacement(
-  //       context,
-  //       MaterialPageRoute(builder: (context) => ConfigurationList()),
-  //     );
-  //   }
-  // }
 
   @override
   void dispose() {
@@ -122,7 +69,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 ],
               ),
             ),
-            nextScreen: HomeScreen(),
+            nextScreen: NavBarController(),
             splashIconSize: MediaQuery.of(context).size.height,
             duration: 2500,
             pageTransitionType: PageTransitionType.leftToRight,
@@ -131,6 +78,4 @@ class _SplashScreenState extends State<SplashScreen> {
       ),
     );
   }
-
-
 }

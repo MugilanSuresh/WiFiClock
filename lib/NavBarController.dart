@@ -26,6 +26,7 @@ class _NavBarControllerState extends State<NavBarController> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _screens[_selectedIndex],
+      backgroundColor: Colors.blueAccent,
       bottomNavigationBar: Container(
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
         decoration: BoxDecoration(

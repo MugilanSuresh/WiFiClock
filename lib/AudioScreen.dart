@@ -10,6 +10,8 @@ class AudioScreen extends StatefulWidget {
 class _AudioScreenState extends State<AudioScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return  Scaffold(
+      backgroundColor: Colors.deepOrangeAccent,
+    );
   }
 }

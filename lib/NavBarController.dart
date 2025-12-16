@@ -14,8 +14,8 @@ class NavBarController extends StatefulWidget {
 
 class _NavBarControllerState extends State<NavBarController> {
   int _selectedIndex = 0;
+  late PageController _pageController;
 
-  // List of screens
   final List<Widget> _screens = const [
     HomeScreen(),
     AudioScreen(),
@@ -23,45 +23,61 @@ class _NavBarControllerState extends State<NavBarController> {
   ];
 
   @override
+  void initState() {
+    super.initState();
+    _pageController = PageController(initialPage: _selectedIndex);
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: _screens[_selectedIndex],
-      backgroundColor: Colors.blueAccent,
-      bottomNavigationBar: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(40),
-              topRight: Radius.circular(40)),
-          color: Colors.white,
-        ),
-        child: GNav(
-          gap: 8,
-          backgroundColor: Colors.white,
-          color: Colors.black,
-          activeColor: Colors.white,
-          tabBackgroundColor: Colors.pink,
-          padding: const EdgeInsets.all(12),
-          selectedIndex: _selectedIndex,
-          onTabChange: (index) {
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.blueAccent,
+        body: PageView(
+          controller: _pageController,
+          onPageChanged: (index) {
             setState(() {
               _selectedIndex = index;
             });
           },
-          tabs: const [
-            GButton(
-              icon: Icons.home,
-              text: 'Home',
+          children: _screens,
+        ),
+        bottomNavigationBar: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(40),
+              topRight: Radius.circular(40),
             ),
-            GButton(
-              icon: Icons.audiotrack,
-              text: 'Audio',
-            ),
-            GButton(
-              icon: Icons.schedule,
-              text: 'Schedule',
-            ),
-          ],
+            color: Colors.white,
+          ),
+          child: GNav(
+            gap: 8,
+            backgroundColor: Colors.white,
+            color: Colors.black,
+            activeColor: Colors.white,
+            tabBackgroundColor: Colors.pink,
+            padding: const EdgeInsets.all(12),
+            selectedIndex: _selectedIndex,
+            onTabChange: (index) {
+              _pageController.animateToPage(
+                index,
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.easeInOut,
+              );
+            },
+            tabs: const [
+              GButton(icon: Icons.home, text: 'Home'),
+              GButton(icon: Icons.audiotrack, text: 'Audio'),
+              GButton(icon: Icons.schedule, text: 'Schedule'),
+            ],
+          ),
         ),
       ),
     );

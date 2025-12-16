@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'NavBarController.dart';
+
 class DashBoardScreen extends StatefulWidget {
   const DashBoardScreen({super.key});
 
@@ -33,8 +35,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
         foregroundColor: Colors.white,
         onPressed: () {
           setState(() {
-
-          });
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) => const NavBarController()));          });
         },
         child: Icon(Icons.add),
       ),

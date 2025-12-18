@@ -12,7 +12,7 @@ class _AudioScreenState extends State<AudioScreen> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.pink,
       body: Center(
         child: AnimatedAnalogClock(
           // location: 'Australia/Darwin',
@@ -35,12 +35,11 @@ class _AudioScreenState extends State<AudioScreen> {
           centerDotColor: Colors.amber,
           hourDashColor: Colors.lightBlue,
           minuteDashColor: Colors.blueAccent,
-        
+          size: 350,
           showSecondHand: true,
           extendHourHand: true,
           extendMinuteHand: true,
           extendSecondHand: true,
-        
         ),
       ),
     );

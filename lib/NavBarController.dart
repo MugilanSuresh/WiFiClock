@@ -38,8 +38,8 @@ class _NavBarControllerState extends State<NavBarController> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: _selectedIndex == 0 ? Colors.white12
-            : _selectedIndex == 1 ? Colors.white12 : Colors.white12,
+        backgroundColor: _selectedIndex == 0 ? Colors.white
+            : _selectedIndex == 1 ? Colors.pink : Colors.white,
         body: PageView(
           controller: _pageController,
           onPageChanged: (index) {
@@ -51,16 +51,16 @@ class _NavBarControllerState extends State<NavBarController> {
         ),
         bottomNavigationBar: Container(
           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(40),
               topRight: Radius.circular(40),
             ),
-            color: Colors.white,
+            color: Colors.blue.shade50,
           ),
           child: GNav(
             gap: 8,
-            backgroundColor: Colors.white,
+            backgroundColor: Colors.blue.shade50,
             color: Colors.black,
             activeColor: Colors.white,
             tabBackgroundColor: Colors.pink,

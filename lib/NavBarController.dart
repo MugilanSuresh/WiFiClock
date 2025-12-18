@@ -38,7 +38,8 @@ class _NavBarControllerState extends State<NavBarController> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: _selectedIndex == 0 ? Colors.white12
+            : _selectedIndex == 1 ? Colors.white12 : Colors.white12,
         body: PageView(
           controller: _pageController,
           onPageChanged: (index) {
